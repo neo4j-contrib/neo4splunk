@@ -1,0 +1,30 @@
+<form>
+  <label>Neo4j</label>
+  <fieldset submitButton="false"></fieldset>
+  <row>
+    <panel>
+      <input type="text" token="query">
+        <label>Query</label>
+      </input>
+      <input type="text" token="host">
+        <label>Host</label>
+        <default>host:7474</default>
+      </input>
+      <table>
+        <search>
+          <query>| neo4j host="$host$" query="$query$" |</query>
+          <earliest>0</earliest>
+          <latest></latest>
+          <sampleRatio>1</sampleRatio>
+        </search>
+        <option name="count">20</option>
+        <option name="dataOverlayMode">none</option>
+        <option name="drilldown">cell</option>
+        <option name="percentagesRow">false</option>
+        <option name="rowNumbers">false</option>
+        <option name="totalsRow">false</option>
+        <option name="wrap">true</option>
+      </table>
+    </panel>
+  </row>
+</form>

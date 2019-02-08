@@ -1,0 +1,6 @@
+[savedsearches/Neo4j%20Movie%20Data%20Test]
+access = read : [ * ], write : [ admin ]
+export = none
+owner = admin
+version = 7.2.0
+modtime = 1549629261.108286000

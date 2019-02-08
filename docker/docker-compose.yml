@@ -1,4 +1,8 @@
 version: '3'
+volumes:
+  volume-neo-data:
+  volume-splunk-etc:
+  volume-splunk-var:
 services:
   neo4j:
     image: neo4j:latest
@@ -9,8 +13,10 @@ services:
       NEO4J_dbms_memory_heap_max__size: 8G
       NEO4J_ACCEPT_LICENSE_AGREEMENT: "yes"
     ports:
-      - "7474:7474"
-      - "7687:7687"
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - volume-neo-data:/data
   splunk:
     image: splunk/splunk:latest
     hostname: splunkenterprise
@@ -20,5 +26,8 @@ services:
       SPLUNK_USER: splunk
       SPLUNK_PASSWORD: changeme
     ports:
-      - "8000:8000"
-      - "8089:8089"
+      - 8001:8000
+    volumes:
+      - volume-splunk-etc:/opt/splunk/etc
+      - volume-splunk-var:/opt/splunk/var
+      - ../apps/neo4s:/opt/splunk/etc/apps/neo4s
